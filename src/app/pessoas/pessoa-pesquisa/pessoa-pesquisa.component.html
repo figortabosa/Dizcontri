@@ -1,0 +1,72 @@
+<div class="container">
+
+  <div class="col-12">
+    <h1>Pessoas</h1>
+  </div>
+  <p-toast ></p-toast>
+
+<form autocomplete="off" (ngSubmit)="pesquisaPorNome(nome)" id="form">
+  <div class="col-12">
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    <label>Nome:</label>
+    <div class="p-inputgroup">
+    <input pInputText type="text" id="nome" name="nome" [(ngModel)]="nome">
+  </div>
+</div>
+
+<div class="col-12">
+<button pButton type="submit" (click)="pesquisaPorNome(nome)" label="Pesquisar"></button>
+</div>
+
+<p-table [value]="pessoas" [paginator]="true" [rows]="4">
+  <ng-template pTemplate="header">
+      <tr>
+        <th>Codigo</th>
+          <th>Nome</th>
+          <th>Cpf</th>
+          <th>sexo</th>
+          <th>Nascimento</th>
+          <th>Uf</th>
+          <th>Ações</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-pessoa>
+    <tr>
+      <td>{{pessoa.cod_pessoa}}</td>
+          <td>{{pessoa.nome}}</td>
+          <td>{{pessoa.cpf}}</td>
+          <td>{{pessoa.sexo}}</td>
+          <td class="col-data">{{pessoa.data_nascimento | date:'dd/MM/yyyy'}}</td>
+          <td>{{pessoa.endereco.uf}}</td>
+          <td class="col-acoes">
+
+              <span style="margin-right: 5px;">
+              <p-button icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+              [routerLink]="['/pessoaCadastro', pessoa.cod_pessoa]"></p-button>
+            </span>
+              <span>
+              <p-button  remove="pessoa" icon="pi pi-trash" pTooltip="Excluir"
+                 tooltipPosition="top" (click)="confirm2(pessoa)"></p-button>
+              </span>
+
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
+<button pButton pRipple type="button" label="Nova Pessoa" style="margin: 20px;"></button>
+</form>
+
+<p-confirmDialog #cd [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '20vw'}">
+  <ng-template pTemplate="header">
+      <h3>Header Content</h3>
+  </ng-template>
+  <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>
+
+<p-confirmDialog [style]="{width: '50vw'}" [transitionOptions]="'400ms'"
+key="positionDialog" [position]="position" [baseZIndex]="10000"></p-confirmDialog>
+
+</div>

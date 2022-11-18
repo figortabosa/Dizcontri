@@ -1,0 +1,68 @@
+<div class="container">
+  <form >
+    <div class="col-12">
+      <h1>Novo Lançamentos</h1>
+    </div>
+
+    <div class="col-12" style="margin-bottom: 20PX;">
+      <p-selectButton [options]="tipos" optionLabel="label" optionValue="value" #tipo></p-selectButton>
+
+    </div>
+
+    <div class="p-fluid grid">
+      <div class="field col-3 md:col-4">
+            <label>Lancamento</label>
+            <p-calendar [showIcon]="true" dateFormat="dd-mm-yy"></p-calendar>
+      </div>
+
+      <div class="field col-3 md:col-4">
+          <label>{{tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}}</label>
+          <p-calendar [showIcon]="true" dateFormat="dd-mm-yy"></p-calendar>
+      </div>
+    </div>
+
+    <div class="p-fluid grid">
+      <div class="field col-12 md:col-8">
+        <label >Descrição</label>
+        <input type="text" pInputText name="descricao"  required minlength="5">
+
+      </div>
+
+      <div class="field col-12 md:col-4">
+        <label >Valor</label>
+        <p-inputNumber mode="currency" inputId="currency-germany" currency="BRL" locale="pt-BR"></p-inputNumber>
+      </div>
+    </div>
+
+    <div class="p-fluid grid">
+      <div class="field col-6">
+        <label >Categoria</label>
+        <p-dropdown [options]="categorias"  placeholder="Selecione"></p-dropdown>
+      </div>
+
+      <div class="field col-6">
+        <label >Pessoa</label>
+        <p-dropdown [options]="pessoas"  placeholder="Selecione" [filter]="true"></p-dropdown>
+      </div>
+    </div>
+
+    <div class="p-fluid grid">
+      <div class="field col-6">
+        <label>Observação</label>
+        <textarea pInputTextarea rows="4"></textarea>
+    </div>
+    </div>
+    <div class="p-fluid grid">
+      <div class="field col-1">
+      <button pButton pRipple type="button" label="Salvar"></button>
+    </div>
+    <div class="field col-1">
+      <button pButton pRipple type="button" label="Novo" class="p-button-raised p-button-secondary p-button-text"></button>
+    </div>
+      <div class="field col-3" style="padding-top: 30px;">
+        <a href="" >Voltar para tela de consulta</a>
+     </div>
+    </div>
+
+</form>
+</div>

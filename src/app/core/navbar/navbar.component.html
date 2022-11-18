@@ -1,0 +1,9 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="col-12">
+     <!-- <a href="javascript:;" class="pi pi-align-justify" style="color: #fff"></a> -->
+     <button type="button" pButton icon="pi pi-list" (click)="menu.toggle($event)"></button>
+     <p-menu #menu [popup]="true" [model]="items"></p-menu>
+    </div>
+  </div>
+</nav>

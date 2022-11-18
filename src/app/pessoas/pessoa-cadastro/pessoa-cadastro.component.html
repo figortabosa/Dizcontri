@@ -1,0 +1,91 @@
+<div class="container">
+  <form >
+    <div class="col-12">
+      <h1>{{editando ? 'Edição de' : 'Cadastro de'}} Pessoa</h1>
+    </div>
+    <p-toast ></p-toast>
+    <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
+    <div class="p-fluid grid">
+      <div class="field col-12 md:col-10">
+        <label >Nome</label>
+        <input id="nome" type="text" [(ngModel)]="pessoa.nome" name="nome" pInputText>
+
+        <div class="field col-12 md:col-4">
+          <label >Sexo</label>
+          <p-dropdown [options]="sexos"  [(ngModel)]="pessoa.sexo" name="label" id="sexo" placeholder="Selecione"
+          optionLabel="label" optionValue="label" [showClear]="true"></p-dropdown>
+        </div>
+      </div>
+
+      <div class="field col-12 md:col-10">
+        <label >Cpf</label>
+        <p-inputMask id="cpf" mask="999.999.999-99" [(ngModel)]="pessoa.cpf" name="cpf"></p-inputMask>
+      </div>
+
+      <div class="field col-12 md:col-2">
+        <label >Nascimento</label>
+        <p-calendar [(ngModel)]="pessoa.data_nascimento" id="data_nascimento" mask="99/99/9999"
+         [showIcon]="true" dateFormat="dd-mm-yy" name="data_nascimento"></p-calendar>
+      </div>
+
+
+
+      <div class="field col-12 md:col-2">
+        <label >Cep</label>
+        <p-inputMask [(ngModel)]="pessoa.endereco.cep" id="cep" mask="99.999-999" name="cep" placeholder="61.000-000"></p-inputMask>
+      </div>
+
+      <div class="field col-12 md:col-10">
+        <label >Logradouro</label>
+        <input [(ngModel)]="pessoa.endereco.logradouro" id="logradouro" name="logradouro" type="text" pInputText>
+      </div>
+
+      <div class="field col-12 md:col-8">
+        <label >Complemento</label>
+        <input type="text" [(ngModel)]="pessoa.endereco.complemento" id="complemento" name="complemento" pInputText>
+      </div>
+
+      <div class="field col-12 md:col-4">
+        <label >Numero</label>
+        <input type="text" [(ngModel)]="pessoa.endereco.numero" id="numero" name="numero" pInputText>
+      </div>
+
+
+        <div class="field col-12 md:col-6">
+          <label >Bairro</label>
+          <input type="text" pInputText>
+        </div>
+
+        <div class="field col-12 md:col-5">
+          <label >Cidade</label>
+          <input type="text" [(ngModel)]="pessoa.endereco.cidade" id="cidade" name="cidade" pInputText>
+        </div>
+
+        <div class="field col-12 md:col-1">
+          <label >Uf</label>
+          <input type="text" [(ngModel)]="pessoa.endereco.uf" id="uf" name="uf" pInputText>
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label >Telefone</label>
+          <p-inputMask mask="(99)99999-9999" [(ngModel)]="pessoa.contato.telefone"  id="telefone" name="telefone"></p-inputMask>
+        </div>
+
+        <div class="field col-12 md:col-6">
+          <label >E-mail</label>
+          <input type="text" [(ngModel)]="pessoa.contato.email" id="email" name="email"  pInputText>
+        </div>
+
+        <div class="field col-1">
+          <button pButton pRipple type="button" label="Salvar" (click)="salvar(pessoa)"></button>
+        </div>
+        <div class="field col-1">
+          <button pButton pRipple type="button" (click)="novo(pessoa)" label="Novo" class="p-button-raised p-button-secondary p-button-text"></button>
+        </div>
+          <div class="field col-3" style="padding-top: 30px;">
+            <a routerLink="/pessoa">Voltar para a pesquisa</a>
+         </div>
+     </div>
+  </form>
+
+</div>
