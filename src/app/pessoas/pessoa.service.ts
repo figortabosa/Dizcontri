@@ -14,8 +14,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class PessoaService {
 
-  pessoasUrl = 'http://localhost:8080/pessoas';
-  pessoasPorNomeUrl = 'http://localhost:8080/pessoas/pesquisaPorNome';
+  pessoasUrl = 'http://localhost:8080/dizcontri-api/pessoas';
+  pessoasPorNomeUrl = 'http://localhost:8080/dizcontri-api/pessoas/pesquisaPorNome';
 
   constructor(private http : HttpClient, private toastr: ToastrService) { }
 
