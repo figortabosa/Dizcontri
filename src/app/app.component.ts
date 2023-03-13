@@ -1,3 +1,4 @@
+import { LoginService } from './seguranca/login.service';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { PessoaService } from './pessoas/pessoa.service';
 import { Component, NgModule, OnInit } from '@angular/core';
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit{
     private primengConfig: PrimeNGConfig,
     private toastrService:ToastrService,
     private confirmationService:ConfirmationService,
+    private loginService:LoginService
     ){
 
     };

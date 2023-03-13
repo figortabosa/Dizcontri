@@ -1,3 +1,4 @@
+import { LoginService } from './../seguranca/login.service';
 import { MessageService } from 'primeng/api';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ErrorHandlerService } from './error-handler.service';
@@ -23,6 +24,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputMaskModule } from 'primeng/inputmask';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { ToastrModule } from 'ngx-toastr';
+import { HeaderInterceptorService } from '../service/header-interceptor.service';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   providers: [
     ErrorHandlerService,
-    MessageService
+    MessageService,
+    HeaderInterceptorService,
+    LoginService
   ]
 })
 export class CoreModule { }
