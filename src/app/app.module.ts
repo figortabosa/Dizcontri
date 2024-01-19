@@ -42,7 +42,7 @@ import { HeaderInterceptorService, HttpInterceptorModule } from './service/heade
 
 
 export const appRouters: Routes = [
-  {path : '', component : PessoaPesquisaComponent},
+  {path : '', component : LoginComponent},
   {path : 'pessoa', component : PessoaPesquisaComponent},
   {path : 'pessoaCadastro', component : PessoaCadastroComponent},
   {path : 'pessoaCadastro/:codigo', component : PessoaCadastroComponent},
