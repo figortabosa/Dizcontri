@@ -6,15 +6,15 @@
     <p-toast ></p-toast>
     <p-messages [(value)]="msgs1" [enableService]="false"></p-messages>
     <div class="p-fluid grid">
-      <div class="field col-12 md:col-10">
+      <div class="field col-12 md:col-8">
         <label >Nome</label>
         <input id="nome" type="text" [(ngModel)]="pessoa.nome" name="nome" pInputText>
 
-        <div class="field col-12 md:col-4">
-          <label >Sexo</label>
-          <p-dropdown [options]="sexos"  [(ngModel)]="pessoa.sexo" name="label" id="sexo" placeholder="Selecione"
-          optionLabel="label" optionValue="label" [showClear]="true"></p-dropdown>
-        </div>
+      </div>
+      <div class="field col-12 md:col-4">
+        <label >Sexo</label>
+        <p-dropdown [options]="sexos"  [(ngModel)]="pessoa.sexo" name="value" id="sexo" placeholder="Selecione"
+        optionLabel="label" optionValue="label" [showClear]="true"></p-dropdown>
       </div>
 
       <div class="field col-12 md:col-10">
@@ -25,10 +25,8 @@
       <div class="field col-12 md:col-2">
         <label >Nascimento</label>
         <p-calendar [(ngModel)]="pessoa.data_nascimento" id="data_nascimento" mask="99/99/9999"
-         [showIcon]="true" dateFormat="dd-mm-yy" name="data_nascimento"></p-calendar>
+         [showIcon]="true" dateFormat="dd/mm/yy" name="data_nascimento"></p-calendar>
       </div>
-
-
 
       <div class="field col-12 md:col-2">
         <label >Cep</label>
@@ -49,7 +47,6 @@
         <label >Numero</label>
         <input type="text" [(ngModel)]="pessoa.endereco.numero" id="numero" name="numero" pInputText>
       </div>
-
 
         <div class="field col-12 md:col-6">
           <label >Bairro</label>
@@ -78,10 +75,6 @@
 
         <div class="field col-1">
           <button pButton pRipple type="button" label="Salvar" (click)="salvar(pessoa)"></button>
-        </div>
-
-        <div class="field col-1">
-          <button pButton pRipple type="button" label="manga" (click)="salvar(pessoa)"></button>
         </div>
 
         <div class="field col-1">
