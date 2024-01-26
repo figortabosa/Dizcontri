@@ -5,6 +5,7 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import {ToastModule} from 'primeng/toast';
 
 import { MessageService, PrimeNGConfig, ConfirmationService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,13 +21,16 @@ export class AppComponent implements OnInit{
     private primengConfig: PrimeNGConfig,
     private toastrService:ToastrService,
     private confirmationService:ConfirmationService,
-    private loginService:LoginService
+    private loginService:LoginService,
+    private router: Router
     ){
 
     };
 
   ngOnInit() {
-
+    if(localStorage.getItem('token') == null) {
+      this.router.navigate(['login'])
+    }
   }
 
 

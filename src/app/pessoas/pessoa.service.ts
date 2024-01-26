@@ -16,7 +16,7 @@ export class PessoaService {
 
   pessoasUrl = 'http://localhost:8080/dizcontri-api/pessoas';
   pessoasPorNomeUrl = 'http://localhost:8080/dizcontri-api/pessoas/pesquisaPorNome';
-
+  datastring = '';
   constructor(private http : HttpClient, private toastr: ToastrService) { }
 
   pesquisar(filtro:any): Promise<any> {
@@ -65,6 +65,7 @@ export class PessoaService {
         const pessoa = response as Pessoa;
 
         this.converterStringsParaDatas(pessoa);
+       // this.converterStringsParaDatas2(pessoa);
         return pessoa;
       });
   }
@@ -75,9 +76,15 @@ export class PessoaService {
     .then(response => response)
   }
 
-  private converterStringsParaDatas(pessoa: Pessoa) {
-    pessoa.data_nascimento = moment(pessoa.data_nascimento,
-        'YYYY-MM-DD').toDate();
-
+  private converterStringsParaDatas2(pessoa: Pessoa) {
+   moment.locale('pt-br');
+   pessoa.data_nascimento = moment(pessoa.data_nascimento,
+    'DD/MM/YYYY').toDate();
+      
+    }
+    converterStringsParaDatas(pessoa:Pessoa, format = 'DD/MM/YYYY') {
+      moment.locale('pt-br');
+    this.datastring = moment(pessoa.data_nascimento).format(format);
+    pessoa.data_nascimento = new Date(this.datastring.split('/').reverse().join('-')+' 00:00:00');
     }
 }

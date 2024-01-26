@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
+import { CardModule } from 'primeng/card';
 
 //import { AuthHttp } from 'angular2-jwt';
 
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ButtonModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    CardModule
   ],
 
   providers: [
