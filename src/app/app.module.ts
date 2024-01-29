@@ -39,6 +39,10 @@ import { PaginaNaoEncontradaComponent } from './core/pagina-nao-encontrada.compo
 import { LoginComponent } from './seguranca/login/login.component';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { HeaderInterceptorService, HttpInterceptorModule } from './service/header-interceptor.service';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { UsuarioCadastroComponent } from './usuarios/usuario-cadastro/usuario-cadastro.component';
+import { UsuarioPesquisaComponent } from './usuarios/usuario-pesquisa/usuario-pesquisa.component';
+import { UsuarioService } from './usuarios/usuario.service';
 
 
 export const appRouters: Routes = [
@@ -48,6 +52,8 @@ export const appRouters: Routes = [
   {path : 'pessoaCadastro/:codigo', component : PessoaCadastroComponent},
   {path : 'lancamento', component : LancametosPesquisaComponent},
   {path : 'lancamentoCadastro', component :LancamentoCadastroComponent},
+  {path : 'usuarioCadastro', component :UsuarioCadastroComponent},
+  {path : 'usuario', component :UsuarioPesquisaComponent},
   {path : 'paginaNaoEncontrada', component : PaginaNaoEncontradaComponent},
   {path : 'login', component : LoginComponent},
   {path : '**', redirectTo : 'paginaNaoEncontrada'}
@@ -81,6 +87,7 @@ export const routes: ModuleWithProviders<any> = RouterModule.forRoot(appRouters)
     PessoasModule,
     SegurancaModule,
     CoreModule,
+    UsuariosModule,
     ToastModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
@@ -89,7 +96,7 @@ export const routes: ModuleWithProviders<any> = RouterModule.forRoot(appRouters)
     HttpInterceptorModule,
     RouterModule.forRoot(appRouters)
   ],
-  providers: [PessoaService,LoginService,HeaderInterceptorService],
+  providers: [PessoaService,LoginService,HeaderInterceptorService,UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

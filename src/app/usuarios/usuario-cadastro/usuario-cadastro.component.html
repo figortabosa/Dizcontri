@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="col-12">
+        <h1>Cadastro de Usuário</h1>
+      </div>
+<div class="card" >
+    <p-card >
+  <div class="telaUsuario"  id="telaUsuario">
+  <form autocomplete="off">
+      <div class="p-fluid grid">
+        <div class="field col-12 md:col-6">
+            <label >Nome</label>
+            <input id="nome" type="text" [(ngModel)]="usuario.nome" name="nome" pInputText>
+        </div>
+        <div class="field col-12 md:col-4">
+            <label >Cpf</label>
+            <input id="nome" type="text" [(ngModel)]="usuario.cpf" name="cpf" pInputText>
+        </div>
+        <div class="field col-12 md:col-6">
+            <label >E-mail</label>
+            <input id="nome" type="text" [(ngModel)]="usuario.login" name="login"  autocomplete="off" style="display: none;" pInputText />
+            <input id="nome" type="text" [(ngModel)]="usuario.login" name="login"  autocomplete="off" pInputText/>
+        </div>
+        <div class="field col-12 md:col-4">
+            <label >Senha</label>
+            <input id="nome" type="password" [(ngModel)]="usuario.senha" name="senha" pInputText>
+        </div>  
+    </div>    
+    <div class="field col-1">
+        <button pButton pRipple type="button" label="Salvar" (click)="salvar(usuario)"></button>
+      </div>
+  </form>
+  
+</div>
+</p-card>
+</div>
+</div>

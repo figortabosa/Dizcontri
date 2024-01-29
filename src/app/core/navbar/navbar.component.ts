@@ -40,15 +40,28 @@ export class NavbarComponent implements OnInit {
               icon: 'pi pi-send',
               routerLink: 'lancamentoCadastro'
           },
-
+        ]},
+        {
+          label: 'Usuários',
+          items: [{
+              label: 'Lista Usuários',
+              icon: 'pi pi-external-link',
+              routerLink: '/usuario'
+          },
+          {
+              label: 'Cadastrar Usuários',
+              icon: 'pi pi-send',
+              routerLink: '/usuarioCadastro'
+          },
           {
             label: 'Sair',
             icon: 'pi pi-fw pi-power-off',
             command: () => {
               this.sair();
+            }
           }
-          }
-      ]},
+        ]},
+          
   ];
 }
 
